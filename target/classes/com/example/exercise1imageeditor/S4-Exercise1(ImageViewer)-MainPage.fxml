@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="500.0" prefWidth="900.0" stylesheets="@PrimaryStyle.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HelloController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+          <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <Menu mnemonicParsing="false" text="Add Image">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#loadEventHandler" text="Select File" />
+                    </items>
+                  </Menu>
+               </items>
+          </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView id="ImageView" fx:id="MainImageView" fitHeight="258.0" fitWidth="384.0" layoutX="487.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+            <Button id="ToGray" layoutX="77.0" layoutY="52.0" mnemonicParsing="false" onAction="#ImageToGrayscale" stylesheets="@PrimaryStyle.css" text="To Grayscale" />
+            <Button id="ToRed" layoutX="92.0" layoutY="162.0" mnemonicParsing="false" onAction="#ImageToRed" text="To Red" />
+            <Button id="ToGreen" layoutX="86.0" layoutY="277.0" mnemonicParsing="false" onAction="#ImageToGreen" text="To Green" />
+            <Button id="ToBlue" layoutX="90.0" layoutY="383.0" mnemonicParsing="false" onAction="#ImageToBlue" text="To Blue" />
+            <Button layoutX="627.0" layoutY="434.0" mnemonicParsing="false" onAction="#resetImage" text="Reset to Original" />
+            <Text fx:id="NameProperty" layoutX="487.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="384.0000000000001">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="SizeProperty" layoutX="582.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="194.13671875" />
+            <Button layoutX="14.0" layoutY="434.0" mnemonicParsing="false" onAction="#endProgram" text="Exit" />
+            <Slider fx:id="changeHue" blockIncrement="0.1" layoutX="189.0" layoutY="114.0" majorTickUnit="0.25" max="1.0" min="-1.0" minorTickCount="1" prefHeight="33.0" prefWidth="194.0" showTickLabels="true" snapToTicks="true" />
+            <Slider fx:id="changeSaturation" blockIncrement="0.1" layoutX="189.0" layoutY="230.0" majorTickUnit="0.25" max="1.0" min="-1.0" minorTickCount="1" prefHeight="14.0" prefWidth="194.0" showTickLabels="true" snapToTicks="true" />
+            <Slider fx:id="changeBrightness" blockIncrement="0.1" layoutX="189.0" layoutY="342.0" majorTickUnit="0.25" max="1.0" min="-1.0" minorTickCount="1" prefHeight="14.0" prefWidth="194.0" showTickLabels="true" snapToTicks="true" />
+            <Text layoutX="275.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hue" />
+            <Text layoutX="259.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturation" />
+            <Text layoutX="258.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brightness" />
+            <Button layoutX="170.0" layoutY="434.0" mnemonicParsing="false" onAction="#plotHistogram" text="Button" />
+            <BarChart fx:id="barChart" layoutX="460.0" layoutY="301.0" prefHeight="126.0" prefWidth="410.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

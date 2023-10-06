@@ -1,0 +1,13 @@
+
+#Example{
+    -fx-background-radius: 5em;
+    -fx-min-width: 80px;
+    -fx-min-height: 80px;
+    -fx-max-width: 80px;
+    -fx-max-height: 80px;
+};
+
+.ImageView{
+    -fx-border-radius: 3px;
+    -fx-background-color: black;
+};
